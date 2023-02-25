@@ -1,37 +1,54 @@
 import { FolderBlockProps } from "@githubnext/blocks";
-import { create, insertBatch, RetrievedDoc, search } from "@lyrasearch/lyra";
+import {
+  create,
+  insertBatch,
+  Lyra,
+  ResolveSchema,
+  RetrievedDoc,
+  search,
+} from "@lyrasearch/lyra";
 import { Box, Text, TextInput } from "@primer/react";
 import { SearchIcon } from "@primer/octicons-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import schemaResolver from "lyra-schema-resolver";
 
-const response = await fetch(
-  "https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/pokedex.json"
-);
-
-const pokedex = (await response.json()).map((pokemon: any) => ({
-  name: pokemon.name.english,
-  type: pokemon.type,
-  base: pokemon.base,
-}));
-const schema = schemaResolver(pokedex[0]);
-
-const db = await create({
-  schema,
-});
-
-await insertBatch(db, pokedex);
-
 export default function (props: FolderBlockProps) {
+  const [db, setDb] = useState({});
+  const [schema, setSchema] = useState({});
   const [loading, setLoading] = useState(false);
   const [term, setTerm] = useState("");
-  const [results, setResults] = useState<RetrievedDoc<typeof schema>[]>([]);
+  const [results, setResults] = useState<any>([]);
+
+  useEffect(() => {
+    fetch(
+      "https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/pokedex.json"
+    )
+      .then((response) => response.json())
+      .then((result) => {
+        const pokedex = result.map((pokemon: any) => ({
+          name: pokemon.name.english,
+          type: pokemon.type,
+          base: pokemon.base,
+        }));
+
+        const resolvedSchema = schemaResolver(pokedex[0], { strict: false });
+        setSchema(resolvedSchema);
+        create({
+          schema: resolvedSchema,
+        }).then((db) => {
+          setDb(db);
+          insertBatch(db, pokedex).then(() => {
+            setLoading(false);
+          });
+        });
+      });
+  }, []);
 
   const handleSearch = async (term: string) => {
     setTerm(term);
     setLoading(true);
 
-    const results = await search(db, {
+    const results = await search(db as Lyra<ResolveSchema<typeof schema>>, {
       term,
     });
 
@@ -85,8 +102,8 @@ export default function (props: FolderBlockProps) {
           </Box>
           {/* Results */}
           <Box>
-            {results.map((result) => (
-              <Box m={3}>
+            {results.map((result: any) => (
+              <Box m={3} key={result.document.name}>
                 <Box>
                   <Text fontWeight="bold" fontSize={1}>
                     Name:{" "}
