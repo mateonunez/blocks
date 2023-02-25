@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "@githubnext/blocks": "^2.3.5",
+    "@lyrasearch/lyra": "^0.4.9",
+    "lyra-schema-resolver": "^0.2.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
   }

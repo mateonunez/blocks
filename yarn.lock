@@ -615,6 +615,11 @@
     hoist-non-react-statics "^3.3.1"
     react-is "^16.12.0"
 
+"@lyrasearch/lyra@^0.4.9":
+  version "0.4.9"
+  resolved "https://registry.yarnpkg.com/@lyrasearch/lyra/-/lyra-0.4.9.tgz#795b5d24c1297667a13dd00bbbbd3f1915128f82"
+  integrity sha512-PMx26K67qZu65Ddran/jF62iiE0fmjQ4ZnVwCDJwjVZoNI3/O9xRUnfzalHEcM8t9SwBxK+uvLqOBlzjXHCxMg==
+
 "@octokit/openapi-types@^12.11.0":
   version "12.11.0"
   resolved "https://registry.yarnpkg.com/@octokit/openapi-types/-/openapi-types-12.11.0.tgz#da5638d64f2b919bca89ce6602d059f1b52d3ef0"
@@ -1701,6 +1706,13 @@ lru-cache@^5.1.1:
   integrity sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==
   dependencies:
     yallist "^3.0.2"
+
+lyra-schema-resolver@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/lyra-schema-resolver/-/lyra-schema-resolver-0.2.0.tgz#2833b25c91732cc31c49b03623b29699283bd7dc"
+  integrity sha512-Q8rL4LCGaRhxlLKjctx8fDwnSo1R28od9xvIpusMRR90H7zf+a8fOy3WaXNP0erxLGoX24Utog2irtePKpV17A==
+  dependencies:
+    "@lyrasearch/lyra" "^0.4.9"
 
 magic-string@^0.27.0:
   version "0.27.0"
