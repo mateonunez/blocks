@@ -1,29 +1,11 @@
 [
   {
     "type": "file",
-    "id": "file-block",
-    "title": "Example File Block",
-    "description": "A basic file block",
-    "entry": "blocks/example-file-block/index.tsx",
-    "matches": ["*"],
-    "example_path": "https://github.com/facebook/react/blob/main/packages/react-dom/index.js"
-  },
-  {
-    "type": "folder",
-    "id": "folder-block",
-    "title": "Example Folder Block",
-    "description": "A basic folder block",
-    "entry": "blocks/example-folder-block.tsx",
-    "matches": ["*"],
-    "example_path": "https://github.com/githubocto/flat"
-  },
-  {
-    "type": "file",
-    "id": "hello-blocks",
-    "title": "Hello, Blocks!",
-    "description": "Hi GitHub Blocks! This is an example",
-    "entry": "blocks/hello-blocks.tsx",
+    "id": "lyra-block",
+    "title": "Lyra Block",
+    "description": "Simple implementation of Lyra using GitHub blocks.",
+    "entry": "blocks/lyra-block.tsx",
     "mathces": ["*"],
-    "example_path": "https://github.com/mateonunez/blocks/blocks/hello-blocks.tsx"
+    "example_path": "https://github.com/mateonunez/blocks/blocks/lyra-block.tsx"
   }
 ]
