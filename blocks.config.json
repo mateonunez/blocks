@@ -16,5 +16,14 @@
     "entry": "blocks/example-folder-block.tsx",
     "matches": ["*"],
     "example_path": "https://github.com/githubocto/flat"
+  },
+  {
+    "type": "file",
+    "id": "hello-blocks",
+    "title": "Hello, Blocks!",
+    "description": "Hi GitHub Blocks! This is an example",
+    "entry": "blocks/hello-blocks.tsx",
+    "mathces": ["*"],
+    "example_path": "https://github.com/mateonunez/blocks/blocks/hello-blocks.tsx"
   }
 ]
