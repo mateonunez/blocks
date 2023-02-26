@@ -31,7 +31,7 @@ export default function (props: FolderBlockProps) {
           base: pokemon.base,
         }));
 
-        const resolvedSchema = schemaResolver(pokedex[0], { strict: false });
+        const resolvedSchema = schemaResolver(pokedex, { strict: false });
         setSchema(resolvedSchema);
         create({
           schema: resolvedSchema,
